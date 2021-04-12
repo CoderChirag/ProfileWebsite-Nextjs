@@ -73,6 +73,7 @@ export default function handler (req, res) {
         .send(msg)
         .then(() => {
           console.log('Email sent')
+          res.status(500).end();
         })
         .catch((error) => {
           console.error(error);
