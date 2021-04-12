@@ -53,11 +53,12 @@ export default function handler (req, res) {
           .send(msg2)
           .then(() => {
             console.log('Email sent')
+            res.end();
           })
           .catch((error) => {
             console.error(error)
+            res.status(500).end();
           })
-          res.end();
       }catch(error){
         
         console.log(error);
@@ -74,9 +75,10 @@ export default function handler (req, res) {
           console.log('Email sent')
         })
         .catch((error) => {
-          console.error(error)
+          console.error(error);
+          res.status(500).end();
+
         });
-        res.status(500).end();
       }
     }
     run();
