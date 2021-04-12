@@ -1,14 +1,13 @@
-import {useContext} from 'react';
-import Layout from '../components/Layout';
-import IntroHead from "../components/IntroHead";
+import { useContext } from 'react';
 import NextHead from 'next/head';
-import IntroText from "../components/IntroText";
-import AvatarImg from "../components/AvatarImg";
+import Layout from '../components/Layout';
+import WorkHead from "../components/WorkHead";
+import Card from "../components/Card";
 import Context from '../Context/Context';
+ 
+export default function Work(props){
 
-const Home = () => {
-
-    const [context, setContext] = useContext(Context);
+   const [context, setContext] = useContext(Context);
 
     return (
         <Layout>
@@ -36,17 +35,27 @@ const Home = () => {
                     background-color: ${context.theme === 'dark' && 'var(--dark-theme-green)'};
                     color: ${context.theme === 'dark' && 'var(--btn-bg-color)'};
                 }
+                .social-icons a .icon{
+                    color: ${context.theme === 'dark' && 'var(--dark-theme-green)'};
+                }
+                .work-hero-card{
+                  background-color: ${context.theme === 'dark' && 'var(--btn-bg-color)'};
+                }
             `}</style>
             <NextHead>
-                <title>Chirag Jain</title>
+                <title>Chirag Jain | Works</title>
             </NextHead>
             <div className="main">
-                <IntroHead />
-                <AvatarImg />
-                <IntroText />
-            </div>
+                <WorkHead />
+                <p>Take a look at the Websites and Web Apps I have made.</p>
+                <Card data={props.data}/>
+            </div> 
         </Layout>
     );
 }
- 
-export default Home;
+
+export async function getServerSideProps() {
+   const res = await fetch(`https://api.npoint.io/476f4e001624d79d6683`)
+   const data = await res.json()
+   return { props: { ...data} }
+}
