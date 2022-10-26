@@ -5,8 +5,8 @@ function IntroText() {
 		<div className='intro-text'>
 			{/* <p>I am in first year B.E CSE at Chitkara University, Punjab. I know<b> Python</b>, <b>Java</b> and <b>MERN Stack</b>. I create awesome Websites and Web Apps. If you are looking for a partner for any project based on this, the feel free to contact me.</p> */}
 			<p>
-				<b>Grounded</b> and <b>Solution-Oriented</b> CSE sophomore
-				having a deep passion of tech.
+				<b>Grounded</b> and <b>Solution-Oriented</b> 3rd year CSE
+				undergrad having a deep passion of tech.
 			</p>
 			<br></br>
 			<p>
